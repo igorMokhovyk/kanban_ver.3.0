@@ -1,18 +1,17 @@
 {
-  "todos" : [
+  "todos": [
     {
       "id": "1",
       "name": "First Task",
       "status": "todo",
       "priority": 4
     },
-
-    {"id": "2",
+    {
+      "id": "2",
       "name": "Second Task",
       "status": "progress",
       "priority": 6
     },
-
     {
       "id": 3,
       "name": "Third Task",
@@ -31,9 +30,8 @@
       "status": "done",
       "priority": 10
     }
-
   ],
-  "trash" : [
+  "trash": [
     {
       "id": 32,
       "name": "Ended task",
@@ -41,7 +39,7 @@
       "priority": 4
     }
   ],
-  "columns" : [
+  "columns": [
     {
       "id": 1,
       "title": "To do",
@@ -61,6 +59,16 @@
       "id": 4,
       "title": "Done",
       "status": "done"
+    },
+    {
+      "title": "New",
+      "status": "new",
+      "id": 5
+    },
+    {
+      "title": "AA",
+      "status": "aa",
+      "id": 6
     }
   ]
 }

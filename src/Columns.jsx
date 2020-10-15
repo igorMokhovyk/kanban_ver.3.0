@@ -1,5 +1,6 @@
 import React from "react";
 import {Button, Modal, ModalHeader, ModalBody, ButtonToggle} from 'reactstrap';
+import Tasks from "./Tasks";
 
 function Columns (props) {
     return (
@@ -8,7 +9,9 @@ function Columns (props) {
                 {props.column.title}
             </h3>
 
-
+            {props.task.filter(el => el.status === props.column.status)
+                .sort((a, b) => a.priority - b.priority)
+                .map(el => <Tasks el={el}/>)}
         </div>
     )
 }
