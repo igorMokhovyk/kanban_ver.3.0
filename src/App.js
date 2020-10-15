@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
+import Columns from "./Columns";
+import 'bootstrap/dist/css/bootstrap.css';
+import axios from "axios";
+import AddNewColumnButton from "./AddNewColumnButton";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [columns, setColumns] = useState([]);
+
+    const getList = () => {
+        axios.get('http://localhost:3000/columns')
+            .then(res => setColumns(res.data))
+            .catch(error => console.log(error))
+    }
+
+
+    const addNewColumnButtonFunc = () => {
+
+    }
+
+    useEffect(() => {
+        getList()
+    }, []);
+
+
+    return (
+        <div className="App">
+            <div className="container">
+                <AddNewColumnButton addNewColumnButton={addNewColumnButtonFunc}/>
+            {columns.map(el => <Columns column={el}
+                                        key={el.id}
+                />
+            )}
+
+            </div>
+        </div>
+    );
 }
 
 export default App;
